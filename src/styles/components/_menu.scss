@@ -1,0 +1,149 @@
+.menu {
+  border-right: 2px solid rgba(0,0,0,.14);
+  @media (max-width:1024px) {
+    width: 275px;
+    position: fixed;
+    z-index: 50;
+    top: 0px;
+    left: -115%;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    padding-right: 0px;
+    background-color: white;
+    border: none;
+    height: 100%;
+    &.active {
+      // left: 0px;
+    }
+  }
+  @include middlemobile{
+    width: 100%;
+    padding-right: 15px;
+  }
+  &__box {
+    background-color: rgba(214,189,255,.4);
+    padding: 40px 25px 35px 35px;
+    height: 100%;
+    position: relative;
+    &::before {
+      display: none;
+      top: 0;
+      left: 0;
+      height: 60px;
+      content: "";
+      position: absolute;
+      width: 100%;
+      z-index: 50;
+      background-color: #d6bdff;
+      @include tablet {
+        display: block;
+      }
+      @include middlemobile {
+        height: 72px;
+      }
+    }
+    @include tablet {
+      background-color: #d6bdff;
+      padding: 60px 18px;
+    }
+    @include middlemobile{
+      padding: 72px 15px;
+      padding-bottom: 5px;
+    }
+  }
+  &__close {
+    position: fixed;
+    top: 34px;
+    left: 49px;
+    display: none;
+    z-index: 200;
+    &.active {
+      display: flex;
+    }
+    @include middlemobile {
+      left: 48px;
+      top: 36px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+  }
+  &__item {
+    &-dop {
+      display: none;
+      @media (max-width:1024px) and (min-width:640px){
+        display: flex;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    border-radius: 30px;
+    padding: 10px 12px;
+    @include tablet {
+      gap: 20px;
+      padding: 8px 11px;
+    }
+    &.active {
+      background-color: rgba(255,57,235,.15);
+    }
+  }
+  &__circle {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background-color: #000000;
+    opacity: 1;
+    flex: 0 0 31px;
+    position: relative;
+    img {
+      position: absolute;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    @include tablet {
+      width: 27px;
+      height: 27px;
+    }
+  }
+  &__line {
+    display: inline-block;
+    background-color: #000000;
+    opacity: 0.14;
+    border-radius: 8px;
+    width: 109px;
+    height: 10px;
+    @include tablet {
+      width: 95px;
+    }
+    &.max {
+      width: 162px;
+      @include tablet {
+        width: 145px;
+      }
+    }
+    &.medium {
+      width: 125px;
+      @include tablet {
+        width: 112px;
+      }
+    }
+  }
+}
+.menu.active .menu__close{
+  @include tablet {
+    display: block;
+  }
+}

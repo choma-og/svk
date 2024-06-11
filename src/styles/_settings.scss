@@ -1,0 +1,168 @@
+@import "./vars";
+@import "./mixins/_breakpoint.scss";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+img {
+  vertical-align: top;
+}
+html,
+body {
+  height: max-content;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  font-size: 12px;
+  color: var(--color-black);
+
+}
+body._lock {
+  @include middlemobile {
+    overflow: hidden;
+  }
+}
+.btn-reset {
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // overflow-x: hidden;
+}
+.main {
+  flex: 1 1 auto;
+}
+[class*="__container"] {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  @include desk {
+    padding: 0 20px;
+  }
+  @include middletablet {
+    padding: 0 20px;
+  }
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
+}
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.67%;
+}
+.col-3 {
+  width: 24.99%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 46.47%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+} 
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.67%;
+}
+.col-12 {
+  width: 100%;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.accent {
+  color: var(--color-accent);
+}
+.header-page {
+  grid-area: header;
+}
+.main-page {
+  grid-area: main;
+}
+.menu-page {
+  grid-area: menu;
+}
+.footer-page {
+  grid-area: footer;
+}
+.layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+          "menu header"
+          "menu main"
+          "footer footer";
+    grid-template-rows: minmax(60px, auto) 1fr auto;
+    grid-template-columns: 310px 1fr;
+    @media (max-width:1024px) {
+      grid-template-columns: auto;
+    }
+}
+.wrapper {
+  min-width: 320px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 15px;
+  @media (max-width:1024px) {
+    padding: 0 15px 15px;
+  }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .card:nth-child(3n+1):nth-last-child(-n+2) {
+      display: none;
+  }
+}
